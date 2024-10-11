@@ -1,0 +1,67 @@
+ion-content {
+    --background: #272727 !important; /* Fundo da página */
+  }
+  
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #272727; // Cor de fundo
+    height: 100vh; // Altura total da tela
+    color: #000000; // Cor do texto
+  }
+  
+  ion-header {
+    background-color: transparent; // Removido o verde do cabeçalho
+    color: #ffffff; // Cor do texto do cabeçalho
+  }
+  
+  ion-toolbar {
+    --background: transparent; // Removido o verde do toolbar
+  }
+  
+  ion-title {
+    font-size: 1.5rem; // Tamanho da fonte do título
+    color: #ffffff; // Fonte do título em branco
+  }
+  
+  .custom-padding {
+    flex: 1; // Para que o container ocupe o restante do espaço
+    width: 90%; // Largura do container
+    max-width: 600px; // Largura máxima
+    margin: 0 auto; // Centraliza o container
+    padding: 20px; // Espaçamento interno
+    border-radius: 10px; // Arredondar os cantos
+    background-color: rgba(128, 128, 128, 0.3); // Fundo cinza transparente
+  }
+  
+  .user-info {
+    background-color: rgba(128, 128, 128, 0.5); // Fundo cinza transparente
+    padding: 15px; // Espaçamento interno do campo de informações
+    border-radius: 10px; // Arredondar os cantos
+    margin-bottom: 20px; // Espaçamento abaixo do campo de informações
+  }
+  
+  ion-input {
+    margin-bottom: 15px; // Espaçamento entre os inputs
+    background-color: rgba(255, 255, 255, 0.1); // Fundo dos inputs
+    color: #e0e0e0; // Cor escurecida do texto do input
+    border-radius: 10px; // Arredondar os cantos
+  }
+  
+  ion-button {
+    margin-top: 20px; // Espaçamento acima do botão
+    background-color: #00FFB6; // Cor do botão
+    color: #1a1a1a; // Cor escurecida do texto do botão
+    border-radius: 5px; // Arredondar os cantos do botão
+  }
+  
+  ion-button:hover {
+    background-color: darken(#00FFB6, 10%); // Escurece a cor ao passar o mouse
+  }
+  
+  .toast {
+    --background: #00FFB6; // Cor do toast
+    --color: #272727; // Cor do texto do toast
+  }
+  

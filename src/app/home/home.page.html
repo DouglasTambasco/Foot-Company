@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Olá, {{ userName }}
+    </ion-title>
+    <!-- Logo no canto direito -->
+    <img src="assets/logo.jfif" alt="Logo" class="rounded-logo-header">
+    <!-- Botão de logout no canto direito -->
+    <img src="assets/logout.png" alt="Logout" class="logout-icon" (click)="logout()">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="home-container">
+    <div class="card card1">
+      <div class="card-content">
+        <div class="logos-container">
+          <img src="assets/real.png" class="team-logo top-logo" alt="Logo Time 1">
+          <img src="assets/logo.jfif" class="team-logo bottom-logo" alt="Logo Time 2">
+        </div>
+        <div class="divider"></div>
+        <div class="info">
+          <span class="label">Local:</span>
+          <span class="location">Santiago Bernabeu</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card2">
+      <div class="card-content">
+        <div class="logos-container">
+          <img src="assets/logo.png" class="logo-foot" alt="Logo">
+        </div>
+        <div class="divider"></div>
+        <div class="info">
+          <span class="label">Próximo treino:</span>
+          <span class="location">CT Zico Dinamite FC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button routerLink="/home">
+        <img src="assets/icones/home.png" alt="Home" class="nav-icon">
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button routerLink="/gym">
+        <img src="assets/icones/malhacao.png" alt="Malhação" class="nav-icon">
+        <ion-label>Treinos</ion-label>
+      </ion-tab-button>
+      <ion-tab-button routerLink="/mensagem">
+        <img src="assets/icones/mensagem.png" alt="Mensagem" class="nav-icon">
+        <ion-label>Mensagem</ion-label>
+      </ion-tab-button>
+      <ion-tab-button routerLink="/perfil">
+        <img src="assets/icones/perfil.png" alt="Perfil" class="nav-icon">
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

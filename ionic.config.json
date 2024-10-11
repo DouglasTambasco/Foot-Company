@@ -1,0 +1,7 @@
+{
+  "name": "Projeto_Faculdade_SD",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

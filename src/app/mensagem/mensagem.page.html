@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="previous-page"></ion-back-button>  <!-- Botão de voltar -->
+    </ion-buttons>
+    <ion-title>Mensagens</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="user-list">
+    <h2>Conversar com:</h2>
+    <ion-list>
+      <ion-item *ngFor="let user of users" (click)="selectUser(user)">
+        <ion-avatar slot="start">
+          <img src="assets/avatar-placeholder.png" alt="User Avatar">
+        </ion-avatar>
+        <ion-label>{{ user.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="selectedUser" class="chat-container">
+    <h3>Conversando com: {{ selectedUser.name }}</h3>
+    
+    <div class="messages-container">
+      <div *ngFor="let message of messages" [class.from-current]="message.from === currentUser.id">
+        <ion-item lines="none">
+          <ion-label>{{ message.text }}</ion-label>
+          <p>{{ message.time?.toDate() | date: 'shortTime' }}</p>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="message-input">
+      <ion-input [(ngModel)]="newMessage" placeholder="Digite uma mensagem..."></ion-input>
+      <ion-button (click)="sendMessage()" color="primary">Enviar</ion-button>
+    </div>
+  </div>
+</ion-content>

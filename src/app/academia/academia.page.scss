@@ -1,0 +1,40 @@
+ion-content {
+  --background: #272727 !important; /* Fundo da página */
+}
+
+ion-header {
+  --background: #272727 !important;
+  
+  ion-toolbar {
+    --background: #272727 !important;
+    display: flex;
+    justify-content: space-between; /* Distribui o conteúdo */
+    align-items: center; /* Alinha verticalmente */
+  }
+  
+  ion-title {
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    flex: 1; /* Ocupa espaço restante */
+  }
+}
+
+ion-card {
+  height: 100px; /* Card um pouco menor */
+}
+
+ion-thumbnail img {
+  width: 60px;
+  height: 60px;
+}
+
+ion-label {
+  text-align: center;
+  color: #1a1a1a; /* Cor das letras mais escuras (quase preto) */
+  font-weight: bold; /* Negrito para destaque adicional */
+}
+
+ion-back-button {
+  --color: #00FFB6; /* Cor do botão back */
+}

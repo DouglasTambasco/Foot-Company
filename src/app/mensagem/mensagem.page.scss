@@ -1,0 +1,66 @@
+:host {
+  ion-content {
+    background-color: #272727;
+    color: white;
+  }
+
+  .user-list {
+    padding: 20px;
+    h2 {
+      color: #00FFB6;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  .chat-container {
+    padding: 20px;
+    
+    h3 {
+      color: #00FFB6;
+      font-size: 1.2rem;
+    }
+
+    .messages-container {
+      height: 60vh;
+      overflow-y: scroll;
+      padding: 10px;
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .message-input {
+      display: flex;
+      align-items: center;
+      ion-input {
+        flex: 1;
+        color: white;
+        border: 1px solid #00FFB6;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #1f1f1f;
+      }
+      ion-button {
+        margin-left: 10px;
+        --background: #00FFB6;
+      }
+    }
+
+    .from-current {
+      ion-item {
+        --background: #00FFB6;
+        --color: white;
+        border-radius: 8px;
+      }
+    }
+
+    ion-item {
+      --background: #393939;
+      --color: white;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+  }
+}

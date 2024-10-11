@@ -1,0 +1,113 @@
+ion-content {
+  --background: #272727 !important; /* Fundo da página */
+}
+
+:host {
+  ion-content {
+    background-color: #272727 !important; /* Fundo da página */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 16px; /* Adiciona padding para evitar que o conteúdo grude nas bordas */
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center; /* Garante que o texto dentro da container esteja centralizado */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Ajuste conforme necessário */
+  min-height: 300px; /* Ajuste conforme necessário */
+  margin: auto; /* Garantir centralização vertical */
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 24px; /* Espaçamento entre a logo/título e o formulário */
+}
+
+.logo {
+  width: 100px; /* Largura da logo */
+  height: 100px; /* Altura da logo */
+  border-radius: 30px; /* Raio da borda arredondada */
+  object-fit: cover; /* Ajusta o tamanho da logo dentro do contêiner */
+  margin-bottom: 12px; /* Espaçamento abaixo da logo */
+}
+
+.title {
+  color: #ffffff; /* Cor do texto */
+  font-size: 24px; /* Tamanho da fonte */
+  margin-bottom: 24px; /* Espaçamento abaixo do título */
+}
+
+ion-button {
+  --border-radius: 8px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte padrão */
+  color: #000000; /* Cor do texto preta */
+}
+
+.login-button {
+  --background: #00FFB6 !important;
+  --color: #000000 !important; /* Cor do texto preta */
+  --border: none !important;
+}
+
+.register-button {
+  --background: transparent !important;
+  --color: #00FFB6 !important; /* Cor do texto verde */
+  --border: 2px solid #00FFB6 !important;
+}
+
+.register-page-button {
+  --background: #00FFB6 !important;
+  --color: #000000 !important; /* Cor do texto preta */
+  --border: none !important;
+}
+
+.login-page-button {
+  --background: transparent !important;
+  --color: #00FFB6 !important; /* Cor do texto verde */
+  --border: 2px solid #00FFB6 !important;
+}
+
+ion-item {
+  --border-radius: 8px; /* Raio da borda arredondada */
+  --border-width: 1px; /* Largura da borda mais fina */
+  --border-color: #000000; /* Cor da borda preta */
+  --padding: 0; /* Remove padding para evitar espaçamento inesperado */
+  --margin: 0; /* Remove margem padrão para garantir controle total */
+  width: 100%; /* Garante que o item ocupe toda a largura disponível */
+}
+
+ion-item + ion-item {
+  margin-top: 16px; /* Espaçamento entre os campos de input */
+}
+
+ion-input {
+  --border-radius: 8px; /* Raio da borda arredondada */
+  --border-width: 1px; /* Largura da borda mais fina */
+  --border-color: #000000; /* Cor da borda preta */
+  --background: #ffffff; /* Cor de fundo do input */
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  width: 100%; /* Garante que o input ocupe toda a largura disponível do ion-item */
+}

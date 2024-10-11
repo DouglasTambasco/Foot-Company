@@ -1,0 +1,48 @@
+<ion-content class="content-background">
+  <div class="container">
+    <div class="logo-container">
+      <img src="assets/logo.jfif" alt="Logo" class="logo">
+      <h1 class="title">FootCompany</h1>
+    </div>
+
+    <!-- Formulário de Login -->
+    <div *ngIf="!isRegistering">
+      <div class="form-container">
+        <ion-item>
+          <ion-input placeholder="Email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Senha" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password"></ion-input>
+          <ion-icon [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePasswordVisibility()" slot="end"></ion-icon>
+        </ion-item>
+        <ion-button class="login-button" (click)="login()">Login</ion-button>
+        <ion-button class="register-button" (click)="toggleRegister()">Criar Conta</ion-button>
+      </div>
+    </div>
+
+    <!-- Formulário de Registro -->
+    <div *ngIf="isRegistering">
+      <div class="form-container">
+        <ion-item>
+          <ion-input placeholder="Nome" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Senha" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password"></ion-input>
+          <ion-icon [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePasswordVisibility()" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="CEP" [(ngModel)]="cep"></ion-input>
+          <ion-button fill="outline" slot="end" (click)="buscarCep()">Buscar CEP</ion-button> <!-- Botão para buscar o CEP -->
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Rua" [(ngModel)]="street"></ion-input>
+        </ion-item>
+        <ion-button class="register-page-button" (click)="register()">Cadastrar</ion-button>
+        <ion-button class="login-page-button" (click)="toggleRegister()">Voltar ao Login</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/gym"></ion-back-button> <!-- Botão de voltar -->
+    </ion-buttons>
+    <ion-title>Academia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Card 1: Supino -->
+  <ion-card>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="assets/supino.png" alt="Supino">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Supino</h2>
+        <p>Tempo de Atividade: 25 minutos
+          <br> Dia da semana: Terça-feira
+        </p> <!-- Informação de tempo -->
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <!-- Card 2: Cardio -->
+  <ion-card>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="assets/cardio.png" alt="Cardio">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Cardio</h2>
+        <p>Tempo de Atividade: 40 minutos
+          <br>Dia da semana: Terça-feira
+        </p> <!-- Informação de tempo -->
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <!-- Card 3: Flexora -->
+  <ion-card>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="assets/flexora.jpg" alt="Flexora">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Pernas</h2>
+        <p>Tempo de Atividade: 30 minutos
+          <br>Dia da semana: Terça-feira
+        </p> <!-- Informação de tempo -->
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

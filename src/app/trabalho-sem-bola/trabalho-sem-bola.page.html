@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/gym"></ion-back-button> <!-- Botão de voltar -->
+    </ion-buttons>
+    <ion-title>Treino sem Bola</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Card 1: tática de campo -->
+  <ion-card>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="assets/tatica.png" alt="Tatica">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Tático</h2>
+        <p>Tempo de Atividade: 25 minutos
+          <br>Dia da semana: Segunda e Quinta-feira
+        </p> <!-- Informação de tempo -->
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+    <!-- Card 2: posicionamento -->
+    <ion-card>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="assets/cone.png" alt="Posicionamentos">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>Posicionamento</h2>
+          <p>Tempo de Atividade: 25 minutos
+            <br>Dia da semana: Segunda e Quinta-feira
+          </p> <!-- Informação de tempo -->
+        </ion-label>
+      </ion-item>
+    </ion-card>

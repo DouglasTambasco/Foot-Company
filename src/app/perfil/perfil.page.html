@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil do Usuário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding profile-content">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Seu Perfil</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input [(ngModel)]="userName" placeholder="Seu nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input [(ngModel)]="userEmail" type="email" placeholder="Seu email" disabled></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">CEP</ion-label>
+        <ion-input [(ngModel)]="userCep" placeholder="Seu CEP"></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" (click)="updateProfile()">Atualizar Perfil</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" color="danger" (click)="logout()">Sair</ion-button>
+</ion-content>
