@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Olá, {{ userName }}</ion-title>
+    <img src="assets/logo.jfif" alt="Logo" class="rounded-logo-header">
+    <img src="assets/logout.png" alt="Logout" class="logout-icon" (click)="logout()">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (submit)="adicionarTreino()">
+    <!-- Seletor para os dias da semana para Treino com Bola -->
+    <ion-item>
+      <ion-label position="floating">Treino com Bola</ion-label>
+      <ion-select [(ngModel)]="treinoComBola" name="treinoComBola" multiple="true" required>
+        <ion-select-option value="Segunda-feira">Segunda-feira</ion-select-option>
+        <ion-select-option value="Terça-feira">Terça-feira</ion-select-option>
+        <ion-select-option value="Quarta-feira">Quarta-feira</ion-select-option>
+        <ion-select-option value="Quinta-feira">Quinta-feira</ion-select-option>
+        <ion-select-option value="Sexta-feira">Sexta-feira</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Seletor para os dias da semana para Treino Sem Bola -->
+    <ion-item>
+      <ion-label position="floating">Treino sem Bola</ion-label>
+      <ion-select [(ngModel)]="treinoSemBola" name="treinoSemBola" multiple="true" required>
+        <ion-select-option value="Segunda-feira">Segunda-feira</ion-select-option>
+        <ion-select-option value="Terça-feira">Terça-feira</ion-select-option>
+        <ion-select-option value="Quarta-feira">Quarta-feira</ion-select-option>
+        <ion-select-option value="Quinta-feira">Quinta-feira</ion-select-option>
+        <ion-select-option value="Sexta-feira">Sexta-feira</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Seletor para os dias da semana para Academia -->
+    <ion-item>
+      <ion-label position="floating">Academia</ion-label>
+      <ion-select [(ngModel)]="academia" name="academia" multiple="true" required>
+        <ion-select-option value="Segunda-feira">Segunda-feira</ion-select-option>
+        <ion-select-option value="Terça-feira">Terça-feira</ion-select-option>
+        <ion-select-option value="Quarta-feira">Quarta-feira</ion-select-option>
+        <ion-select-option value="Quinta-feira">Quinta-feira</ion-select-option>
+        <ion-select-option value="Sexta-feira">Sexta-feira</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" color="success">Salvar Treino</ion-button>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="adicionar-jogo" [routerLink]="['/adicionar-jogo']">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Adicionar Dia de jogo</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

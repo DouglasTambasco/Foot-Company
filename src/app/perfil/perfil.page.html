@@ -8,6 +8,14 @@
 </ion-header>
 
 <ion-content class="ion-padding profile-content">
+  <div class="avatar-container">
+    <img *ngIf="profileImageUrl; else defaultAvatar" [src]="profileImageUrl" class="avatar" />
+    <ng-template #defaultAvatar>
+      <img src="assets/default-avatar.png" class="avatar" />
+    </ng-template>
+    <ion-button (click)="selectAndUploadPhoto()" class="upload-button">Fazer Upload da Imagem</ion-button>
+  </div>
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>Seu Perfil</ion-card-title>

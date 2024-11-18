@@ -1,40 +1,51 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="previous-page"></ion-back-button>  <!-- Botão de voltar -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Mensagens</ion-title>
+    <ion-title>Meu Perfil de Jogador</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="user-list">
-    <h2>Conversar com:</h2>
-    <ion-list>
-      <ion-item *ngFor="let user of users" (click)="selectUser(user)">
-        <ion-avatar slot="start">
-          <img src="assets/avatar-placeholder.png" alt="User Avatar">
-        </ion-avatar>
-        <ion-label>{{ user.name }}</ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
+  <form (ngSubmit)="savePlayerProfile()">
+    <ion-item>
+      <ion-label position="stacked">Perna Preferida</ion-label>
+      <ion-select [(ngModel)]="player.pernaPreferida" name="pernaPreferida">
+        <ion-select-option value="Direita">Direita</ion-select-option>
+        <ion-select-option value="Esquerda">Esquerda</ion-select-option>
+        <ion-select-option value="Ambidestro">Ambidestro</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <div *ngIf="selectedUser" class="chat-container">
-    <h3>Conversando com: {{ selectedUser.name }}</h3>
-    
-    <div class="messages-container">
-      <div *ngFor="let message of messages" [class.from-current]="message.from === currentUser.id">
-        <ion-item lines="none">
-          <ion-label>{{ message.text }}</ion-label>
-          <p>{{ message.time?.toDate() | date: 'shortTime' }}</p>
-        </ion-item>
-      </div>
-    </div>
+    <ion-item>
+      <ion-label position="stacked">Número da Camisa</ion-label>
+      <ion-input [(ngModel)]="player.numeroCamisa" name="numeroCamisa" type="number"></ion-input>
+    </ion-item>
 
-    <div class="message-input">
-      <ion-input [(ngModel)]="newMessage" placeholder="Digite uma mensagem..."></ion-input>
-      <ion-button (click)="sendMessage()" color="primary">Enviar</ion-button>
-    </div>
-  </div>
+    <ion-item>
+      <ion-label position="stacked">Posição</ion-label>
+      <ion-select [(ngModel)]="player.posicao" name="posicao">
+        <ion-select-option value="Goleiro">Goleiro</ion-select-option>
+        <ion-select-option value="Lateral">Lateral</ion-select-option>
+        <ion-select-option value="Zagueiro">Zagueiro</ion-select-option>
+        <ion-select-option value="Meio-campo">Meio-Campo</ion-select-option>
+        <ion-select-option value="Meio-ofensivo">Meio-Ofensivo</ion-select-option>
+        <ion-select-option value="Ponta">Ponta</ion-select-option>
+        <ion-select-option value="Atacante">Atacante</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Altura (cm)</ion-label>
+      <ion-input [(ngModel)]="player.altura" name="altura" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Peso (kg)</ion-label>
+      <ion-input [(ngModel)]="player.peso" name="peso" type="number"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Salvar</ion-button>
+  </form>
 </ion-content>

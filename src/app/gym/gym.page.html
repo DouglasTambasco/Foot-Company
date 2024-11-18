@@ -27,7 +27,7 @@
   </div>
 
   <!-- Retângulo 2 - Redirecionamento para "Treino com Bola" -->
-  <div class="rectangle-container" routerLink="/treino-com-bola"> <!-- routerLink adicionado -->
+  <div class="rectangle-container" routerLink="/treino-com-bola">
     <div class="rectangle">
       <img src="assets/bola.png" alt="Imagem Grande" class="large-image">
       <div class="rectangle-content">
@@ -51,6 +51,13 @@
       </div>
     </div>
   </div>
+
+  <!-- Botão adicional para "Treino Semanal" -->
+  <div class="button-container">
+    <ion-button expand="full" routerLink="/treino-semanal">
+      Ver Treino Semanal
+    </ion-button>
+  </div>
 </ion-content>
 
 <ion-footer>
@@ -66,7 +73,7 @@
       </ion-tab-button>
       <ion-tab-button routerLink="/mensagem">
         <img src="assets/icones/mensagem.png" alt="Mensagem" class="nav-icon">
-        <ion-label>Mensagem</ion-label>
+        <ion-label>Preferência</ion-label>
       </ion-tab-button>
       <ion-tab-button routerLink="/perfil">
         <img src="assets/icones/perfil.png" alt="Perfil" class="nav-icon">

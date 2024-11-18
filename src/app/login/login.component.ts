@@ -5,6 +5,16 @@ import { Router } from '@angular/router';  // Router para navegação
 import { ToastController } from '@ionic/angular';  // Toast para mensagens
 import { HttpClient } from '@angular/common/http'; // Para fazer requisição HTTP
 
+// Definindo a interface para o perfil do usuário
+interface UserProfile {
+  name: string;
+  age: number;
+  cep: string;
+  street: string;
+  email: string;
+  isTreinador?: boolean;  // O campo isTreinador pode ser opcional
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,6 +24,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   name: string = '';
+  age: number | null = null; // Nova propriedade para idade
   cep: string = '';
   street: string = ''; // Rua
   showPassword: boolean = false;
@@ -21,13 +32,12 @@ export class LoginComponent {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore,  // Instância do Firestore Database
-    private router: Router,  // Router para navegação
-    private toastController: ToastController,  // ToastController para mensagens
-    private http: HttpClient // Para realizar requisições HTTP
+    private firestore: AngularFirestore,
+    private router: Router,
+    private toastController: ToastController,
+    private http: HttpClient
   ) {}
 
-  // Função para exibir uma mensagem toast
   async presentToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message: message,
@@ -38,9 +48,8 @@ export class LoginComponent {
     toast.present();
   }
 
-  // Função para buscar o endereço via API de CEP
   buscarCep() {
-    if (this.cep.length === 8) { // Validação básica para o CEP
+    if (this.cep.length === 8) {
       this.http.get(`https://viacep.com.br/ws/${this.cep}/json/`)
         .subscribe(
           (data: any) => {
@@ -60,19 +69,37 @@ export class LoginComponent {
     }
   }
 
-  // Função de login com Firebase
+  async getUserProfile(userId: string): Promise<UserProfile | undefined> {
+    // Buscar o perfil do usuário no Firestore para verificar se ele é um treinador
+    const userDoc = await this.firestore.collection('users').doc(userId).get().toPromise();
+    return userDoc?.data() as UserProfile;  // Garantir que o retorno é tratado como UserProfile
+  }
+
   login() {
     this.afAuth.signInWithEmailAndPassword(this.email, this.password)
-      .then((user) => {
-        this.presentToast('Login bem-sucedido!', 'success');
-        this.router.navigate(['/home']);
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+
+        if (user) {
+          // Verificar se o usuário tem o campo 'isTreinador' no Firestore
+          const userProfile = await this.getUserProfile(user.uid);
+
+          if (userProfile && userProfile.isTreinador === true) {
+            // Se o usuário for treinador, redireciona para a página de atualizações dos treinos
+            this.router.navigate(['/treinos']);  // Ajuste o caminho conforme a sua página
+          } else {
+            // Caso contrário, redireciona para a página do aluno (Home)
+            this.router.navigate(['/home']);
+          }
+
+          this.presentToast('Login bem-sucedido!', 'success');
+        }
       })
       .catch((error) => {
         this.presentToast(`Erro no login: ${error.message}`, 'danger');
       });
   }
 
-  // Função de registro com Firebase
   register() {
     this.afAuth.createUserWithEmailAndPassword(this.email, this.password)
       .then((userCredential) => {
@@ -81,8 +108,10 @@ export class LoginComponent {
           const userId = user.uid;
           this.firestore.collection('users').doc(userId).set({
             name: this.name,
+            age: this.age,
             cep: this.cep,
-            street: this.street
+            street: this.street,
+            email: this.email  // Adicionando o e-mail ao Firestore
           }).then(() => {
             this.presentToast('Usuário registrado com sucesso!', 'success');
             this.toggleRegister();  // Volta para o modo de login automaticamente
@@ -97,12 +126,10 @@ export class LoginComponent {
       });
   }
 
-  // Função para alternar a visibilidade da senha
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 
-  // Função para alternar entre as telas de login e registro
   toggleRegister() {
     this.isRegistering = !this.isRegistering;
   }

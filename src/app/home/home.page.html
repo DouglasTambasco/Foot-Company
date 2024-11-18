@@ -1,43 +1,60 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Olá, {{ userName }}
-    </ion-title>
-    <!-- Logo no canto direito -->
+    <ion-title>Olá, {{ userName }}</ion-title>
     <img src="assets/logo.jfif" alt="Logo" class="rounded-logo-header">
-    <!-- Botão de logout no canto direito -->
     <img src="assets/logout.png" alt="Logout" class="logout-icon" (click)="logout()">
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="home-container">
-    <div class="card card1">
-      <div class="card-content">
-        <div class="logos-container">
-          <img src="assets/real.png" class="team-logo top-logo" alt="Logo Time 1">
-          <img src="assets/logo.jfif" class="team-logo bottom-logo" alt="Logo Time 2">
-        </div>
-        <div class="divider"></div>
-        <div class="info">
-          <span class="label">Local:</span>
-          <span class="location">Santiago Bernabeu</span>
-        </div>
-      </div>
-    </div>
+    <!-- Exibir informações da última partida -->
+    <ion-card class="matches-container" *ngIf="latestMatch">
+      <ion-card-header>
+        <ion-card-title>Próxima Partida</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Time Adversário:</strong> {{ latestMatch.timeAdversario }}</p>
+        <p><strong>Data da Partida:</strong> {{ latestMatch.dataPartida | date: 'dd/MM/yyyy' }}</p>
+        <p><strong>Hora da Partida:</strong> {{ latestMatch.horaPartida }}</p>
+        <p><strong>Local da Partida:</strong> {{ latestMatch.localPartida }}</p>
+      </ion-card-content>
+    </ion-card>
 
-    <div class="card card2">
-      <div class="card-content">
-        <div class="logos-container">
-          <img src="assets/logo.png" class="logo-foot" alt="Logo">
-        </div>
-        <div class="divider"></div>
-        <div class="info">
-          <span class="label">Próximo treino:</span>
-          <span class="location">CT Zico Dinamite FC</span>
-        </div>
-      </div>
-    </div>
+    <!-- Exibir informações do jogador -->
+    <ion-card class="profile-card" *ngIf="player">
+      <ion-card-header>
+        <ion-card-title>Seus dados, Craque!</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Perna Dominante:</strong> {{ player.pernaPreferida }}</p>
+        <p><strong>Número da Camisa:</strong> {{ player.numeroCamisa }}</p>
+        <p><strong>Posição:</strong> {{ player.posicao }}</p>
+        <p><strong>Altura:</strong> {{ player.altura }} cm</p>
+        <p><strong>Peso:</strong> {{ player.peso }} kg</p>
+        <p><strong>Idade:</strong> {{ player.age }} anos</p>
+        <p><strong>Total de Gols:</strong> {{ totalGoals }}</p>
+        <p><strong>Total de Assistências:</strong> {{ totalAssists }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Campos para adicionar gols e assistências -->
+    <ion-card class="stats-form">
+      <ion-card-header>
+        <ion-card-title>Bagunçou hoje, Craque?!!</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Gols</ion-label>
+          <ion-input [(ngModel)]="newGoals" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Assistências</ion-label>
+          <ion-input [(ngModel)]="newAssists" type="number"></ion-input>
+        </ion-item>
+        <ion-button expand="full" (click)="saveStats()">Salvar</ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
 
@@ -54,7 +71,7 @@
       </ion-tab-button>
       <ion-tab-button routerLink="/mensagem">
         <img src="assets/icones/mensagem.png" alt="Mensagem" class="nav-icon">
-        <ion-label>Mensagem</ion-label>
+        <ion-label>Preferência</ion-label>
       </ion-tab-button>
       <ion-tab-button routerLink="/perfil">
         <img src="assets/icones/perfil.png" alt="Perfil" class="nav-icon">

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Histórico de treinos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="treinos | async as treinoData; else loading" class="content-wrapper">
+    <ion-list>
+      <!-- Card para cada treino com contagem -->
+      <ion-item *ngFor="let treino of treinoData; let i = index">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Treino semanal: {{ i + 1 }} {{ treino.nome }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="card-content">
+              <!-- Card para academia -->
+              <div *ngIf="treino.academia">
+                <h3>Academia:</h3>
+                <ion-list>
+                  <ion-item *ngFor="let item of treino.academia">
+                    <ion-label>{{ item }}</ion-label>
+                  </ion-item>
+                </ion-list>
+              </div>
+
+              <!-- Card para treino com bola -->
+              <div *ngIf="treino.treinoComBola">
+                <h3>Treino com Bola:</h3>
+                <ion-list>
+                  <ion-item *ngFor="let item of treino.treinoComBola">
+                    <ion-label>{{ item }}</ion-label>
+                  </ion-item>
+                </ion-list>
+              </div>
+
+              <!-- Card para treino sem bola -->
+              <div *ngIf="treino.treinoSemBola">
+                <h3>Treino sem Bola:</h3>
+                <ion-list>
+                  <ion-item *ngFor="let item of treino.treinoSemBola">
+                    <ion-label>{{ item }}</ion-label>
+                  </ion-item>
+                </ion-list>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ng-template #loading>
+    <ion-spinner name="dots"></ion-spinner>
+  </ng-template>
+</ion-content>
+
+<ion-footer>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button routerLink="/home">
+        <img src="assets/icones/home.png" alt="Home" class="nav-icon">
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button routerLink="/gym">
+        <img src="assets/icones/malhacao.png" alt="Malhação" class="nav-icon">
+        <ion-label>Treinos</ion-label>
+      </ion-tab-button>
+      <ion-tab-button routerLink="/mensagem">
+        <img src="assets/icones/mensagem.png" alt="Mensagem" class="nav-icon">
+        <ion-label>Preferência</ion-label>
+      </ion-tab-button>
+      <ion-tab-button routerLink="/perfil">
+        <img src="assets/icones/perfil.png" alt="Perfil" class="nav-icon">
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

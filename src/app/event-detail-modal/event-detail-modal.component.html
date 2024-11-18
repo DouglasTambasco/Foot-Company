@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Detalhes do Evento</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()">Fechar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ eventDetails?.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ eventDetails?.description }}</p>
+        <p><strong>Data:</strong> {{ eventDetails?.date | date }}</p>
+        <p><strong>Local:</strong> {{ eventDetails?.location }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

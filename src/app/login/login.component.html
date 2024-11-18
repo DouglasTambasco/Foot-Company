@@ -30,12 +30,15 @@
           <ion-input placeholder="Email" [(ngModel)]="email"></ion-input>
         </ion-item>
         <ion-item>
+          <ion-input placeholder="Idade" [(ngModel)]="age" type="number"></ion-input> <!-- Novo campo de idade -->
+        </ion-item>
+        <ion-item>
           <ion-input placeholder="Senha" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password"></ion-input>
           <ion-icon [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePasswordVisibility()" slot="end"></ion-icon>
         </ion-item>
         <ion-item>
           <ion-input placeholder="CEP" [(ngModel)]="cep"></ion-input>
-          <ion-button fill="outline" slot="end" (click)="buscarCep()">Buscar CEP</ion-button> <!-- Botão para buscar o CEP -->
+          <ion-button fill="outline" slot="end" (click)="buscarCep()">Buscar CEP</ion-button>
         </ion-item>
         <ion-item>
           <ion-input placeholder="Rua" [(ngModel)]="street"></ion-input>

@@ -64,4 +64,35 @@ ion-content {
     --background: #00FFB6; // Cor do toast
     --color: #272727; // Cor do texto do toast
   }
+
+  ion-content {
+    --background: #272727 !important; /* Fundo da página */
+  }
+  
+  .avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Espaçamento abaixo do avatar */
+  }
+  
+  .avatar {
+    width: 100px; /* Tamanho do avatar */
+    height: 100px; /* Tamanho do avatar */
+    border-radius: 50%; /* Deixar a imagem redonda */
+    object-fit: cover; /* Cobrir o espaço disponível */
+    margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+  }
+  
+  .upload-button {
+    background-color: #00FFB6; /* Cor do botão de upload */
+    color: #1a1a1a; /* Cor do texto do botão */
+    border-radius: 5px; /* Arredondar os cantos do botão */
+  }
+  
+  .upload-button:hover {
+    background-color: darken(#00FFB6, 10%); /* Efeito ao passar o mouse */
+  }
+  
+  /* O restante do CSS permanece igual */
   

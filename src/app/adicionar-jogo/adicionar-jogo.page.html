@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="back-button" defaultHref="/treinos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Adicionar Jogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="adicionarJogo()">
+    <ion-item>
+      <ion-label position="floating">Time Adversário</ion-label>
+      <ion-input [(ngModel)]="timeAdversario" name="timeAdversario" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Data da Partida</ion-label>
+      <ion-datetime [(ngModel)]="dataPartida" name="dataPartida" display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD" required></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Hora da Partida</ion-label>
+      <ion-input [(ngModel)]="horaPartida" name="horaPartida" type="time" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Local da Partida</ion-label>
+      <ion-input [(ngModel)]="localPartida" name="localPartida" required></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit">Adicionar Jogo</ion-button>
+  </form>
+</ion-content>

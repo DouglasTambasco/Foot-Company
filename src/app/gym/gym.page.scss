@@ -50,7 +50,6 @@ ion-content {
   margin-bottom: 42px;
 }
 
-
 .rectangle {
   background-color: #ffffff;
   border-radius: 8px;
@@ -62,7 +61,6 @@ ion-content {
   align-items: center;
   position: relative;
 }
-
 
 .large-image {
   width: 60px;
@@ -90,6 +88,13 @@ ion-content {
   right: 5px;
   -webkit-text-stroke: 1px #272727;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Botão adicional */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 ion-footer {
